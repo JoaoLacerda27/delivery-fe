@@ -4,30 +4,120 @@ Aplicação web moderna desenvolvida em ReactJS para gerenciamento de pedidos e 
 
 ## 📋 Índice
 
-- [Visão Geral](#visão-geral)
-- [Tecnologias](#tecnologias)
-- [Requisitos](#requisitos)
-- [Instalação](#instalação)
-- [Configuração](#configuração)
-- [Executando o Projeto](#executando-o-projeto)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Funcionalidades](#funcionalidades)
-- [Autenticação](#autenticação)
+- [Introduction](#introduction)
+- [Objective](#objective)
+- [Requirements](#requirements)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Authentication](#authentication)
 - [API Integration](#api-integration)
-- [Deploy](#deploy)
-- [Arquitetura](#arquitetura)
+- [Deployment Instructions](#deployment-instructions)
+- [Architecture](#architecture)
+- [Documentation](#documentation)
 
-## 🎯 Visão Geral
+## Introduction
 
-Esta aplicação é uma plataforma completa de gerenciamento de entregas que permite:
+Esta aplicação é uma plataforma completa de gerenciamento de entregas desenvolvida como parte do desafio ZCAM. A aplicação demonstra habilidades em desenvolvimento front-end moderno, incluindo:
 
-- **Gerenciamento de Pedidos**: Criar, visualizar, listar e excluir pedidos
-- **Gerenciamento de Entregas**: Criar, visualizar, listar e atualizar status de entregas
-- **Autenticação OAuth2**: Login com Google usando OAuth2 e JWT
-- **Integração com APIs Externas**: Busca automática de endereços via ViaCEP
-- **Interface Responsiva**: Design adaptável para desktop, tablet e mobile
+- Construção de interface de usuário limpa e intuitiva usando ReactJS
+- Implementação de operações CRUD completas
+- Integração com API externa (ViaCEP) para busca de endereços
+- Validação de formulários com feedback visual
+- Autenticação OAuth2 com Google e JWT
+- Design totalmente responsivo
+- Gerenciamento de estado eficiente
+- Arquitetura baseada em features
 
-## 🛠 Tecnologias
+A aplicação segue as melhores práticas de desenvolvimento front-end, garantindo código limpo, manutenível e escalável.
+
+## Objective
+
+O objetivo deste projeto é criar uma aplicação web ReactJS que:
+
+- Interage com uma API REST (backend Spring Boot)
+- Fornece interface amigável para operações CRUD
+- Exibe dados recuperados de API externa
+- Segue práticas modernas de desenvolvimento front-end
+- Implementa autenticação segura
+- Oferece experiência responsiva em diferentes dispositivos
+
+## Requirements
+
+### ✅ User Interface Design
+
+- [x] Interface limpa e intuitiva usando ReactJS
+- [x] Design responsivo funcionando em diferentes tamanhos de tela
+- [x] Suporte para tablet 10" (1024x768) e mobile
+- [x] Uso de Material-UI para componentes consistentes
+
+### ✅ CRUD Operations
+
+- [x] **Create (POST)**: Criar pedidos e entregas
+- [x] **Read (GET)**: Listar e visualizar detalhes de pedidos e entregas
+- [x] **Update (PUT/PATCH)**: Atualizar status de entregas
+- [x] **Delete (DELETE)**: Excluir pedidos
+- [x] Interface amigável para cada operação
+- [x] Integração com backend Spring Boot (REST API)
+
+### ✅ External API Integration
+
+- [x] Integração com ViaCEP via backend para busca automática de endereços
+- [x] Busca automática ao digitar CEP completo (8 dígitos)
+- [x] Preenchimento automático de campos de endereço
+- [x] Cache de endereços no backend
+- [x] Feedback visual durante busca
+
+### ✅ Form Validation
+
+- [x] Validação de formulários com React Hook Form + Zod
+- [x] Mensagens de erro significativas em português
+- [x] Validação em tempo real
+- [x] Feedback visual de erros
+- [x] Validação de campos obrigatórios
+
+### ✅ Login Form
+
+- [x] Autenticação OAuth2 com Google
+- [x] JWT token para autenticação
+- [x] Mensagens de erro para credenciais inválidas
+- [x] Proteção de rotas
+- [x] Logout funcional
+
+### ✅ API Specifications
+
+- [x] Estruturas de request/response alinhadas com backend
+- [x] Tratamento de diferentes tipos de resposta da API
+- [x] Paginação implementada
+- [x] Tratamento de erros da API
+
+### ✅ Responsive Design
+
+- [x] Design totalmente responsivo
+- [x] Funciona em desktop, tablet (1024x768) e mobile
+- [x] Uso de Material-UI com breakpoints responsivos
+- [x] Layout adaptável com CSS Grid e Flexbox
+- [x] Testado em diferentes resoluções
+
+### ✅ Authentication
+
+- [x] OAuth2 com Google
+- [x] JWT token armazenado em localStorage
+- [x] Rotas protegidas (PrivateRoute)
+- [x] Interceptors Axios para adicionar token automaticamente
+- [x] Verificação de autenticação em todas as requisições
+
+### ✅ Documentation
+
+- [x] README completo com instruções
+- [x] Comentários no código explicando lógica
+- [x] Estrutura de pastas documentada
+- [x] Instruções de deploy
+
+## Technologies
 
 ### Core
 - **React 19.2.3** - Biblioteca JavaScript para construção de interfaces
@@ -52,67 +142,13 @@ Esta aplicação é uma plataforma completa de gerenciamento de entregas que per
 ### Notificações
 - **React Toastify 11.0.5** - Sistema de notificações toast
 
-## ✅ Requisitos do Desafio
-
-### ✅ User Interface Design
-- [x] Interface limpa e intuitiva usando ReactJS
-- [x] Design responsivo funcionando em diferentes tamanhos de tela
-- [x] Suporte para tablet 10" (1024x768) e mobile
-
-### ✅ CRUD Operations
-- [x] **Create (POST)**: Criar pedidos e entregas
-- [x] **Read (GET)**: Listar e visualizar detalhes de pedidos e entregas
-- [x] **Update (PUT/PATCH)**: Atualizar status de entregas
-- [x] **Delete (DELETE)**: Excluir pedidos
-- [x] Integração com backend Spring Boot (REST API)
-
-### ✅ External API Integration
-- [x] Integração com ViaCEP via backend para busca automática de endereços
-- [x] Busca automática ao digitar CEP completo (8 dígitos)
-- [x] Cache de endereços no backend
-
-### ✅ Form Validation
-- [x] Validação de formulários com React Hook Form + Zod
-- [x] Mensagens de erro em português
-- [x] Validação em tempo real
-- [x] Feedback visual de erros
-
-### ✅ Login Form
-- [x] Autenticação OAuth2 com Google
-- [x] JWT token para autenticação
-- [x] Mensagens de erro para credenciais inválidas
-- [x] Proteção de rotas
-
-### ✅ API Specifications
-- [x] Estruturas de request/response alinhadas com backend
-- [x] Tratamento de diferentes tipos de resposta da API
-- [x] Paginação implementada
-
-### ✅ Responsive Design
-- [x] Design totalmente responsivo
-- [x] Funciona em desktop, tablet (1024x768) e mobile
-- [x] Uso de Material-UI com breakpoints responsivos
-- [x] Layout adaptável com CSS Grid e Flexbox
-
-### ✅ Authentication
-- [x] OAuth2 com Google
-- [x] JWT token armazenado em localStorage
-- [x] Rotas protegidas (PrivateRoute)
-- [x] Interceptors Axios para adicionar token automaticamente
-- [x] Logout funcional
-
-### ✅ Documentation
-- [x] README completo com instruções
-- [x] Comentários no código explicando lógica
-- [x] Estrutura de pastas documentada
-
-## 🚀 Instalação
+## Installation
 
 ### Pré-requisitos
 
 - **Node.js** >= 18.x
 - **npm** >= 9.x ou **yarn** >= 1.22
-- Backend Spring Boot rodando em `http://localhost:8080`
+- Backend Spring Boot rodando e acessível
 
 ### Passos
 
@@ -134,7 +170,7 @@ ou
 yarn install
 ```
 
-## ⚙️ Configuração
+## Configuration
 
 ### Variáveis de Ambiente
 
@@ -150,7 +186,7 @@ VITE_API_URL=http://localhost:8080/api
 
 Certifique-se de que o backend Spring Boot está configurado para:
 
-- Aceitar requisições de `http://localhost:5173` (CORS)
+- Aceitar requisições do frontend (CORS)
 - Ter OAuth2 configurado com Google
 - Ter os endpoints de autenticação funcionando:
   - `GET /oauth2/authorization/google`
@@ -158,7 +194,7 @@ Certifique-se de que o backend Spring Boot está configurado para:
   - `GET /api/auth/user`
   - `POST /api/auth/logout`
 
-## 🏃 Executando o Projeto
+## Running the Project
 
 ### Modo Desenvolvimento
 
@@ -200,7 +236,7 @@ ou
 yarn preview
 ```
 
-## 📁 Estrutura do Projeto
+## Project Structure
 
 ```
 delivery-fe/
@@ -246,7 +282,7 @@ delivery-fe/
 └── README.md             # Este arquivo
 ```
 
-## 🎨 Funcionalidades
+## Features
 
 ### Autenticação
 
@@ -312,7 +348,7 @@ delivery-fe/
     - Marcar como Falhou (qualquer status → FAILED)
   - Link para pedido relacionado
 
-## 🔐 Autenticação
+## Authentication
 
 ### Fluxo OAuth2
 
@@ -336,7 +372,7 @@ delivery-fe/
 - Componente `PrivateRoute` verifica autenticação
 - Redireciona para login se não autenticado
 
-## 🌐 API Integration
+## API Integration
 
 ### Backend Spring Boot
 
@@ -344,7 +380,7 @@ A aplicação se comunica com o backend através de:
 
 - **Base URL**: Configurada via `VITE_API_URL` (padrão: `http://localhost:8080/api`)
 - **Autenticação**: JWT token no header `Authorization`
-- **CORS**: Backend deve aceitar requisições de `http://localhost:5173`
+- **CORS**: Backend deve aceitar requisições do frontend
 
 ### Endpoints Utilizados
 
@@ -366,8 +402,8 @@ A aplicação se comunica com o backend através de:
 - `POST /deliveries/{orderId}` - Criar entrega para pedido
 - `PATCH /deliveries/{id}/status` - Atualizar status da entrega
 
-#### Endereços
-- `GET /addresses/{cep}` - Buscar endereço por CEP (ViaCEP)
+#### Endereços (API Externa - ViaCEP)
+- `GET /addresses/{cep}` - Buscar endereço por CEP (ViaCEP via backend)
 
 ### Integração ViaCEP
 
@@ -381,7 +417,29 @@ A aplicação se comunica com o backend através de:
   - Complemento (se disponível)
 - Cache no backend para CEPs já consultados
 
-## 🚀 Deploy
+## Deployment Instructions
+
+### Vercel (Recomendado)
+
+1. **Instale Vercel CLI** (opcional):
+```bash
+npm i -g vercel
+```
+
+2. **Deploy via Dashboard**:
+   - Acesse: https://vercel.com
+   - Conecte seu repositório Git
+   - Configure:
+     - Build Command: `npm run build`
+     - Output Directory: `dist`
+     - Install Command: `npm install`
+   - Adicione variável de ambiente:
+     - `VITE_API_URL`: URL do seu backend em produção
+
+3. **Deploy via CLI** (alternativa):
+```bash
+vercel
+```
 
 ### Netlify
 
@@ -397,21 +455,6 @@ npm run build
    - Adicione variável de ambiente:
      - `VITE_API_URL`: URL do seu backend em produção
 
-### Vercel
-
-1. **Instale Vercel CLI**:
-```bash
-npm i -g vercel
-```
-
-2. **Deploy**:
-```bash
-vercel
-```
-
-3. **Configure variáveis de ambiente** no dashboard da Vercel:
-   - `VITE_API_URL`: URL do seu backend em produção
-
 ### Outros Serviços
 
 Para outros serviços de hospedagem (GitHub Pages, AWS S3, etc.):
@@ -426,8 +469,9 @@ Para outros serviços de hospedagem (GitHub Pages, AWS S3, etc.):
 - Configure CORS no backend para aceitar requisições do domínio de produção
 - Use HTTPS em produção
 - Configure variáveis de ambiente no serviço de hospedagem
+- O arquivo `vercel.json` já está configurado para SPA routing
 
-## 🏗 Arquitetura
+## Architecture
 
 ### Feature-Based Architecture
 
@@ -465,7 +509,9 @@ Cada feature contém:
 - **PrivateRoute**: Componente para proteger rotas
 - **Nested Routes**: Rotas aninhadas com layout compartilhado
 
-## 📝 Comentários no Código
+## Documentation
+
+### Comentários no Código
 
 O código inclui comentários explicativos em:
 
@@ -475,29 +521,27 @@ O código inclui comentários explicativos em:
 - Integrações com APIs externas
 - Validações e transformações de dados
 
-## 🎯 Conclusão
+### Estrutura Documentada
 
-Este projeto atende **todos os requisitos** do desafio:
+- README completo com todas as instruções
+- Estrutura de pastas explicada
+- Fluxos de autenticação documentados
+- Endpoints da API documentados
+- Instruções de deploy detalhadas
+
+## Conclusão
+
+Este projeto atende **todos os requisitos** do desafio ZCAM:
 
 ✅ Interface limpa e intuitiva  
 ✅ CRUD completo (Create, Read, Update, Delete)  
 ✅ Integração com API externa (ViaCEP)  
 ✅ Validação de formulários  
 ✅ Autenticação OAuth2 + JWT  
-✅ Design responsivo  
+✅ Design responsivo (incluindo tablet 1024x768)  
 ✅ Documentação completa  
-
-## 📞 Suporte
-
-Para dúvidas ou problemas:
-
-1. Verifique se o backend está rodando
-2. Verifique as variáveis de ambiente
-3. Verifique o console do navegador para erros
-4. Verifique a configuração de CORS no backend
+✅ Instruções de deploy  
 
 ---
 
-**Desenvolvido com ❤️ usando React, TypeScript e Material-UI**
-
-
+**Desenvolvido como parte do desafio ZCAM - Frontend Developer Assignment**
