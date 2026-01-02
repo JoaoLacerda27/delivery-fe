@@ -117,7 +117,7 @@ const CreateOrderPage = () => {
           </Typography>
 
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} component="div">
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="ID do Cliente"
@@ -127,7 +127,7 @@ const CreateOrderPage = () => {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={6} component="div">
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Nome do Cliente"
