@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { routes } from './routes';
 import LoginPage from '@/features/auth/pages/LoginPage';
 import GoogleCallbackPage from '@/features/auth/pages/GoogleCallbackPage';
@@ -12,6 +12,10 @@ import MainLayout from '@/shared/layouts/MainLayout';
 import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navigate to={routes.login} replace />,
+  },
   {
     path: routes.login,
     element: <LoginPage />,
