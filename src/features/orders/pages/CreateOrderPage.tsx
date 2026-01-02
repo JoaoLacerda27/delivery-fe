@@ -7,7 +7,6 @@ import {
   Paper,
   TextField,
   Button,
-  Grid,
   IconButton,
   Table,
   TableBody,
@@ -116,28 +115,30 @@ const CreateOrderPage = () => {
             Informações do Cliente
           </Typography>
 
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="ID do Cliente"
-                {...register('customerId')}
-                error={!!errors.customerId}
-                helperText={errors.customerId?.message}
-                required
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Nome do Cliente"
-                {...register('customerName')}
-                error={!!errors.customerName}
-                helperText={errors.customerName?.message}
-                required
-              />
-            </Grid>
-          </Grid>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+              gap: 2,
+            }}
+          >
+            <TextField
+              fullWidth
+              label="ID do Cliente"
+              {...register('customerId')}
+              error={!!errors.customerId}
+              helperText={errors.customerId?.message}
+              required
+            />
+            <TextField
+              fullWidth
+              label="Nome do Cliente"
+              {...register('customerName')}
+              error={!!errors.customerName}
+              helperText={errors.customerName?.message}
+              required
+            />
+          </Box>
         </Paper>
 
         <Paper sx={{ p: 3, mb: 3 }}>
